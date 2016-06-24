@@ -1,0 +1,6 @@
+.col-md-4
+  %h2= rental.name
+  %p= rental.summary.en
+  %p= published_since(rental.published_at)
+  %p
+    = link_to 'View details', rental, class: 'btn btn-default'

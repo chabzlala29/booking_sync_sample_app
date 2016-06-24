@@ -9,6 +9,10 @@ class Rental < ActiveRecord::Base
 
   scope :by_name, -> (query) { where("name LIKE ?", "%#{query}%")  }
 
+  def published_at
+    synced_data.published_at.try(:to_datetime)
+  end
+
   class << self
     def search(query='')
       if query.present?

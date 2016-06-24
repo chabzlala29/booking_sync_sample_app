@@ -13,4 +13,6 @@
           = search_field_tag :q, '', { class: 'form-control', placeholder: 'Search for Rentals' }
         = submit_tag 'Search', class: 'btn btn-success'
         .form-group
+          = link_to 'Sync Rentals', root_path(sync: true), class: 'btn btn-success'
+        .form-group
           = link_to 'Logout', '/signout', class: 'btn btn-warning'

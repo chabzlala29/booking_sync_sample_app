@@ -1,6 +1,7 @@
 .row
   .col-md-12
     %h2= @rental.name
+    %p= published_since(@rental.published_at)
 
     %p
       %strong= @rental.headline.en
