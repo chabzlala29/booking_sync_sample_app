@@ -15,6 +15,7 @@ gem 'haml'
 gem 'bookingsync_application'
 
 gem 'rest-client'
+gem 'thin'
 
 group :development, :test do
   gem 'pry'
