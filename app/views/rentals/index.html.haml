@@ -5,4 +5,4 @@
         %h2= rental.name
         %p= rental.summary.en
         %p
-          %a.btn.btn-default{:href => "#", :role => "button"} View details &raquo;
+          = link_to 'View details', rental, class: 'btn btn-default'

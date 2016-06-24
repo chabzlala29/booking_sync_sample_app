@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    %h2= @rental.name
+
+    %p
+      %strong= @rental.headline.en
+    %p
+      %small= "Reviews: #{@rental.reviews_count}"
+
+    %h3 Summary
+    %p= @rental.summary.en
+
+    %h3 Description
+    %p= @rental.description.en

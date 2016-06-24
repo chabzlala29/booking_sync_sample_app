@@ -5,7 +5,7 @@ class Rental < ActiveRecord::Base
 
   CURRENT_LOCALE = 'en'
 
-  delegate :name, :summary, :headline, to: :synced_data, allow_nil: true
+  delegate :name, :summary, :headline, :description, :reviews_count, to: :synced_data, allow_nil: true
 
   scope :by_name, -> (query) { where("name LIKE ?", "%#{query}%")  }
 
