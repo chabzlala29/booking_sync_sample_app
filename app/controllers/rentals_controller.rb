@@ -6,12 +6,12 @@ class RentalsController < ApplicationController
   def index
     # Can be moved to a button synchronized or a CRON job but for now I'll just do it here :)
     Rental.synchronize(scope: current_account)
-    @rentals = Rental.search(params[:q])
+    @rentals = current_account.rentals.search(params[:q])
   end
 
   protected
 
   def get_rental
-    @rental = Rental.find(params[:id])
+    @rental = current_account.rentals.find(params[:id])
   end
 end
