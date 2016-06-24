@@ -1,0 +1,6 @@
+.alert.alert-warning.alert-dismissible{:role => "alert"}
+  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+    %span{"aria-hidden" => "true"} &times;
+  %strong Message!
+  - flash.each do |key, value|
+    = content_tag :div, value, class: "flash #{key}"

@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title BookingApp
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/nav'
+    .jumbotron
+      .container
+        %h1 Rentals Directory
+        %p This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+        %p
+          %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more &raquo;
+    .container
+      - if flash.any?
+        = render 'layouts/flash_messages'
+      = yield
+      = render 'layouts/footer'

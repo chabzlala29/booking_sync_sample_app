@@ -1,0 +1,16 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} Booking App
+    #navbar.navbar-collapse.collapse
+      = form_tag rentals_path, class: 'navbar-form navbar-right', method: :get do
+        .form-group
+          = search_field_tag :q, '', { class: 'form-control', placeholder: 'Search for Rentals' }
+        = submit_tag 'Search', class: 'btn btn-success'
+        .form-group
+          = link_to 'Logout', '/signout', class: 'btn btn-warning'

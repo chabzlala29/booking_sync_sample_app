@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root 'authenticated#index'
+  root 'rentals#index'
+
+  resources :rentals, only: [:index]
   mount BookingSync::Engine => '/'
 end
