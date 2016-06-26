@@ -6,7 +6,8 @@ class RentalsController < ApplicationController
   def index
     # Can be moved to a button synchronized or a CRON job but for now I'll just do it here :)
     Rental.synchronize(scope: current_account) if params[:sync]
-    @rentals = current_account.rentals.search(params[:q])
+    @rentals = current_account.rentals.search(params[:q]).
+      paginate(page: params[:page])
   end
 
   def new
@@ -35,6 +36,6 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit!
+    params.require(:rental).permit(:name, :headline, :summary, :description)
   end
 end

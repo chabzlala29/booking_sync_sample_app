@@ -15,6 +15,7 @@ gem 'haml'
 gem 'rest-client'
 gem 'bookingsync_application'
 gem 'thin'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'pry'

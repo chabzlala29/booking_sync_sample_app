@@ -6,3 +6,7 @@
 .row
   .col-md-4
     = link_to 'New Rental', new_rental_path, class: 'btn btn-warning btn-lg'
+
+.row
+  .col-md-12
+    = will_paginate @rentals
