@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'rentals#index'
 
-  resources :rentals, only: [:index, :show]
+  resources :rentals
 
   namespace :api do
     jsonapi_resources :rentals, only: [:index, :show]

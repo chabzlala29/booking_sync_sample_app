@@ -4,3 +4,4 @@
   %p= published_since(rental.published_at)
   %p
     = link_to 'View details', rental, class: 'btn btn-default'
+    = link_to 'Remove', rental, method: :delete, class: 'btn btn-success btn-delete', data: { confirm: 'Are you sure?' }

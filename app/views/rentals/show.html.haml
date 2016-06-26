@@ -13,3 +13,8 @@
 
     %h3 Description
     %p= @rental.description.en
+
+.row
+  .col-md-4
+    = link_to 'Update Rental', edit_rental_path(@rental), class: 'btn btn-warning'
+    = link_to 'Remove', @rental, method: :delete, class: 'btn btn-success btn-delete', data: { confirm: 'Are you sure?' }

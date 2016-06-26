@@ -1,0 +1,14 @@
+= form_for @rental do |f|
+  .form-group
+    = f.label 'Rental Name'
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label 'Headline'
+    = f.text_field :headline, class: 'form-control', value: @rental.headline.try(:en)
+  .form-group
+    = f.label 'Summary'
+    = f.text_field :summary, class: 'form-control', value: @rental.summary.try(:en)
+  .form-group
+    = f.label 'Description'
+    = f.text_field :description, class: 'form-control', value: @rental.description.try(:en)
+  = f.submit 'Submit', class: 'btn btn-default'

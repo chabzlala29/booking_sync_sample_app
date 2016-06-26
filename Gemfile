@@ -12,9 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
 
-gem 'bookingsync_application'
-
 gem 'rest-client'
+gem 'bookingsync_application'
 gem 'thin'
 
 group :development, :test do
