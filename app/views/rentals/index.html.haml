@@ -1,7 +1,9 @@
 .row
-  - @rentals.in_groups_of(3) do |group|
-    - group.compact.each do |rental|
-      = render rental
+  .col-md-12
+    - @rentals.in_groups_of(3) do |group|
+      .row
+        - group.compact.each do |rental|
+          = render rental
 %hr
 .row
   .col-md-4
