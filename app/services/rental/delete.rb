@@ -10,7 +10,5 @@ class Rental::Delete
       api.delete_rental(@id)
       @account.rentals.where(synced_id: @id).delete_all
     end
-  rescue
-    puts 'Something bad happened'
   end
 end

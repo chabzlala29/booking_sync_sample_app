@@ -15,21 +15,37 @@ class RentalsController < ApplicationController
   end
 
   def create
-    @rental = Rental::Create.new(account: current_account, attr: rental_params).call
-    redirect_to @rental
+    redirect_with_exception do
+      @rental = Rental::Create.new(account: current_account, attr: rental_params).call
+      redirect_to @rental, { notice: 'Created Successfully' }
+    end
   end
 
   def update
-    @rental = Rental::Update.new(account: current_account, id: @rental.synced_id, attr: rental_params).call
-    redirect_to @rental
+    redirect_with_exception do
+      @rental = Rental::Update.new(account: current_account, id: @rental.synced_id, attr: rental_params).call
+      redirect_to @rental, { notice: 'Updated Successfully' }
+    end
   end
 
   def destroy
-    Rental::Delete.new(account: current_account, id: @rental.synced_id).call
-    redirect_to :index, { notice: 'Successfully deleted!' }
+    redirect_with_exception do
+      Rental::Delete.new(account: current_account, id: @rental.synced_id).call
+      redirect_to root_path, { notice: 'Successfully deleted!' }
+    end
   end
 
   protected
+
+  def redirect_with_exception(&block)
+    if block_given?
+      begin
+        yield
+      rescue => e
+        redirect_to @rental, { notice: e.message }
+      end
+    end
+  end
 
   def get_rental
     @rental = current_account.rentals.find(params[:id])

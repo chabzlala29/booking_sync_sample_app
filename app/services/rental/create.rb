@@ -13,8 +13,6 @@ class Rental::Create
       resp = api.create_rental(hash_attr)
       create_record(resp)
     end
-  rescue
-    puts 'Something bad happened'
   end
 
   protected

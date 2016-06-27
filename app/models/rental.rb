@@ -9,7 +9,7 @@ class Rental < ActiveRecord::Base
 
   scope :by_name, -> (query) { where("name LIKE ?", "%#{query}%")  }
 
-  self.per_page = 10
+  self.per_page = 9
 
   def published_at
     synced_data.published_at.try(:to_datetime)

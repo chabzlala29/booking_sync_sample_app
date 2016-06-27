@@ -14,8 +14,6 @@ class Rental::Update
       resp = api.edit_rental(@id, hash_attr)
       update_record(resp)
     end
-  rescue
-    puts 'Something bad happened'
   end
 
   protected
