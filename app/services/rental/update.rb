@@ -1,4 +1,6 @@
 class Rental::Update
+  include Rental::HashAttributes
+
   def initialize(account:, id:, attr: {})
     @name = attr[:name]
     @headline = attr[:headline]
@@ -24,14 +26,5 @@ class Rental::Update
     rental.synced_data = resp
     rental.save
     rental
-  end
-
-  def hash_attr
-    hash = {}
-    hash[:name] = @name if @name
-    hash[:headline_en] = @headline if @headline
-    hash[:summary_en] = @summary if @summary
-    hash[:description_en] = @description if @description
-    hash
   end
 end

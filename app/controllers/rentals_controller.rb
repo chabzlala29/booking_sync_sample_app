@@ -4,8 +4,7 @@ class RentalsController < ApplicationController
   before_action :get_rental, only: [:show, :edit, :update, :destroy]
 
   def index
-    # Can be moved to a button synchronized or a CRON job but for now I'll just do it here :)
-    Rental.synchronize(scope: current_account) if params[:sync]
+    load_rentals_from_account
     @rentals = current_account.rentals.search(params[:q]).
       paginate(page: params[:page])
   end
@@ -53,5 +52,13 @@ class RentalsController < ApplicationController
 
   def rental_params
     params.require(:rental).permit(:name, :headline, :summary, :description)
+  end
+
+  def load_rentals_from_account
+    # Can be moved to a button synchronized or a CRON job but for now I'll just do it here :)
+    
+    if params[:sync] || !current_account.rentals.any?
+      Rental.synchronize(scope: current_account)
+    end
   end
 end
