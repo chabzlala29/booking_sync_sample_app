@@ -18,7 +18,7 @@ engines:
   rubocop:
     enabled: true
     AllCops:
-      TargetRubyVersion: 2.2.4
+      TargetRubyVersion: 2.2.5
     exclude_fingerprints:
     - 3bc56d141a551d919ec3d9f48d27dab5
 ratings:
@@ -30,6 +30,7 @@ exclude_paths:
   - "config/**/*"
   - ".codeclimate.yml"
   - ".rubocop.yml"
+  - ".gitignore"
   - "db/*"
   - "db/**/*"
   - "bin/*"
