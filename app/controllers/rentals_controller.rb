@@ -1,4 +1,6 @@
 class RentalsController < ApplicationController
+  include Rentals::RedirectWithException
+
   before_filter :authenticate_account!
 
   before_action :get_rental, only: [:show, :edit, :update, :destroy]
@@ -35,16 +37,6 @@ class RentalsController < ApplicationController
   end
 
   protected
-
-  def redirect_with_exception(&block)
-    if block_given?
-      begin
-        yield
-      rescue => e
-        redirect_to @rental, { notice: e.message }
-      end
-    end
-  end
 
   def get_rental
     @rental = current_account.rentals.find(params[:id])
