@@ -1,8 +1,6 @@
 class Rental < ActiveRecord::Base
   synced local_attributes: { name: :name }
-
   belongs_to :account
-
   CURRENT_LOCALE = 'en'
 
   delegate :name, :summary, :headline, :description, :reviews_count, to: :synced_data, allow_nil: true
