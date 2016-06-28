@@ -1,3 +1,4 @@
 test:
-  <<: *default
-  database: db/test.sqlite3
+  adapter: sqlite3
+  timeout: 500
+  database: ":memory:"
