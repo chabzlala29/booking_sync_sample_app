@@ -2,7 +2,7 @@ module Rentals
   module RedirectWithException
     protected
 
-    def redirect_with_exception(&block)
+    def redirect_with_exception(_block)
       if block_given?
         begin
           yield
