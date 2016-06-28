@@ -7,3 +7,6 @@ before_script:
   - bundle exec rake db:migrate RAILS_ENV=test
 script:
   - bundle exec rspec spec
+addons:
+  code_climate:
+    repo_token: 54177501340cf59d00dbb6734a742dedf611695d65546af8d8449f5c20407429
