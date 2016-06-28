@@ -17,8 +17,6 @@ engines:
     enabled: true
   rubocop:
     enabled: true
-    AllCops:
-      TargetRubyVersion: 2.2.5
     exclude_fingerprints:
     - 3bc56d141a551d919ec3d9f48d27dab5
 ratings:
