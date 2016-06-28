@@ -7,16 +7,11 @@ RSpec.describe RentalsController, type: :controller do
     before do
       account.update oauth_access_token: test_access_token
       allow(controller).to receive(:current_account).and_return(account)
-      allow(controller).to receive(:load_rentals_from_account).and_return(true)
     end
 
     describe 'GET index' do
-      before do
-        # stop sync on test mode
-        allow(controller).to receive(:load_rentals_from_account).and_return(true)
-      end
-
       it 'respond success' do
+        allow(controller).to receive(:load_rentals_from_account).and_return(true)
         get :index
         expect(response).to be_success
       end
