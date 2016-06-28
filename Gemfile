@@ -32,4 +32,7 @@ group :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'database_cleaner'
   gem 'ffaker'
+  gem 'shoulda-matchers', require: false
+  gem 'vcr'
+  gem 'webmock'
 end

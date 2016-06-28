@@ -5,7 +5,11 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'factory_girl_rails'
+require 'database_cleaner'
+require 'shoulda-matchers'
 require 'ffaker'
+require 'bookingsync_api_spec_helper'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -18,6 +22,7 @@ RSpec.configure do |config|
   end
 
   config.mock_with :rspec
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
     FactoryGirl.lint
@@ -50,4 +55,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end

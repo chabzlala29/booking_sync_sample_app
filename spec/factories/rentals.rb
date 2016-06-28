@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :rental do
-    name "MyString"
+    name { FFaker::Company.name }
   end
 end

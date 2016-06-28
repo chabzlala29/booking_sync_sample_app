@@ -1,5 +1,5 @@
 class Rental::Update
-  include Rental::HashAttributes
+  include Rentals::HashAttributes
 
   def initialize(account:, id:, attr: {})
     @name = attr[:name]

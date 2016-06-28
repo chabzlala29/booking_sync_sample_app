@@ -1,5 +1,7 @@
 module ApplicationHelper
   def published_since(datetime)
-    "published #{time_ago_in_words(datetime)} ago" if datetime
+    if datetime && datetime.is_a?(DateTime)
+      "published #{time_ago_in_words(datetime)} ago"
+    end
   end
 end

@@ -1,4 +1,4 @@
-module Rental
+module Rentals
   module HashAttributes
     protected
 

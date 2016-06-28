@@ -6,7 +6,7 @@ class RentalsController < ApplicationController
   def index
     load_rentals_from_account
     @rentals = current_account.rentals.search(params[:q]).
-      paginate(page: params[:page])
+      order(created_at: :desc).paginate(page: params[:page])
   end
 
   def new
