@@ -1,6 +1,8 @@
 # BookingSync Sample App for Rentals
 A sample BookingSync App integration just showing the Rentals of current account logged in.
 
+[![Build Status](https://travis-ci.org/chabzlala29/booking_sync_sample_app.svg?branch=master)](https://travis-ci.org/chabzlala29/booking_sync_sample_app)
+
 ## Preparing Development Environment
 
 Install gem dependencies.
